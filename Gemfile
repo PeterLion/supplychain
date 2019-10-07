@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 #Use Devise for user authentication management
 gem 'devise'
+#Use Figaro for Environment variables
+gem 'figaro'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -34,6 +36,7 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
   gem 'rspec-rails', '~> 3.8'
+  gem 'better_errors'
 end
 
 group :development do
@@ -43,6 +46,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'sendgrid-ruby'
 end
 
 group :test do
