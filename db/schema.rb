@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_163347) do
+ActiveRecord::Schema.define(version: 2019_10_08_031526) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_permissions_on_role_id"
+    t.index ["user_id"], name: "index_permissions_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -45,4 +61,6 @@ ActiveRecord::Schema.define(version: 2019_10_07_163347) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "permissions", "roles"
+  add_foreign_key "permissions", "users"
 end

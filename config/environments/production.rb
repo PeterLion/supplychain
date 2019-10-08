@@ -110,6 +110,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   # ActionMailer Config
+  
   config.action_mailer.default_url_options = { :host => 'https://railslogistics.herokuapp.com'}
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {

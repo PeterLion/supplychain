@@ -24,9 +24,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 #Use Figaro for Environment variables
 gem 'figaro'
+#Use Pundit for authorization
+gem 'pundit'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -36,12 +37,13 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
   gem 'rspec-rails', '~> 3.8'
-  gem 'better_errors'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'better_errors'
+  gem "binding_of_caller"
 end
 
 group :production do

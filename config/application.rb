@@ -19,7 +19,7 @@ module Railsshipping
       :address => 'smtp.gmail.com',
       :domain => 'mail.google.com',
       :port => 587,
-      :user_name =>ENV['GMAIL_USERNAME'] ,
+      :user_name =>ENV['GMAIL_USERNAME'],
       :password => ENV['GMAIL_PASSWORD'],
       :authentication => 'login',
       :enable_starttls_auto => true
