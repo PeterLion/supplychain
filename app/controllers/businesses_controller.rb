@@ -1,7 +1,6 @@
 class BusinessesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_business, only: [:show, :edit, :update, :destroy]
-  after_action :verify_authorized, except: :show
   # GET /businesses
   # GET /businesses.json
   def index
