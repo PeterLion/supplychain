@@ -3,16 +3,23 @@
             <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
+  
   <div class="field form-group">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class:"form-control", autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true, class:"form-control user_name", autocomplete: "name" %>
+     <span>
+     <% if resource.errors[:name].any? %>
+        <%= resource.errors[:name][0] %>
+     <% end %>
+     </span>
   </div>
   
   <div class="field form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true,class:"form-control", autocomplete: "email" %>
+    <% if resource.errors[:email].any? %>
+        <%= resource.errors[:email][0] %>
+     <% end %>
   </div>
 
   <div class="field form-group">
@@ -21,11 +28,17 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password,class:"form-control", autocomplete: "new-password" %>
+  <% if resource.errors[:password].any? %>
+        <%= resource.errors[:password][0] %>
+     <% end %>
   </div>
 
   <div class="field form-group">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation,class:"form-control", autocomplete: "new-password" %>
+  <% if resource.errors[:password_confirmation].any? %>
+        <%= resource.errors[:password_confirmation][0] %>
+     <% end %>
   </div>
 
   <div class="actions form-group">

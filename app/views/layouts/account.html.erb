@@ -1,0 +1,28 @@
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><%= link_to "Business Profile", user_account_path, class:"nav-link"%></div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Orders</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Transactions</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Products</a>
+        <%= link_to "Profile", user_profile_path, class:"list-group-item list-group-item-action bg-light"%>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Reports</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <div class="container-fluid">
+        <%= yield(:account_page_content) %>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+

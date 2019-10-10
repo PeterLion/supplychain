@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   match '/users',   to: 'users#index',   via: 'get'
+  match '/user/account',   to: 'users#account',   via: 'get'
+  match '/user/profile',   to: 'users#profile',   via: 'get'
   resources :roles
   resources :businesses
   devise_for :users, controllers: {registrations: "registrations"}

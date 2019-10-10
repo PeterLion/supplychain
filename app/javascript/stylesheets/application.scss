@@ -1,1 +1,7 @@
 @import './bootstrap_custom.scss';
+@import './simple-sidebar.scss';
+@import './user_profile_styles.scss';
+
+.field_with_errors input{
+    border: 1px solid #f00;
+  }

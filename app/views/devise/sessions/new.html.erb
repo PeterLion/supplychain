@@ -6,11 +6,21 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true,class:"form-control", autocomplete: "email" %>
+  <span>
+    <% if resource.errors[:email].any? %>
+    <%= resource.errors[:email][0] %>
+    <% end %>
+  </span>
   </div>
 
   <div class="field form-group">
     <%= f.label :password %><br />
     <%= f.password_field :password,class:"form-control", autocomplete: "current-password" %>
+  <span>
+    <% if resource.errors[:password].any? %>
+    <%= resource.errors[:password][0] %>
+    <% end %>
+  </span>
   </div>
 
   <% if devise_mapping.rememberable? %>

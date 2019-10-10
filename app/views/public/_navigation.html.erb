@@ -24,10 +24,10 @@
           <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Acount
+    <i class="fa fa-user-circle mr-1"></i><%= current_user.name %>
   </a>
          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
+    <%= link_to "Account", user_account_path, class:"dropdown-item"%>
     <%= link_to "Profile", edit_user_registration_path, class:"dropdown-item"%>
     <%= link_to "Logout", destroy_user_session_path, class:"dropdown-item",method: :delete %>
   </div>

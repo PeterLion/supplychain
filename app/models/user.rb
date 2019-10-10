@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :confirmable, :lockable, :timeoutable
   
-  validates :name, presence: true
+  validates :name, acceptance: {presence: true,message: "Name must be filled!"}
          has_many :permissions
   has_many :roles, through: :permissions
 
