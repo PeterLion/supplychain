@@ -7,14 +7,24 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
   </head>
 
   <body>
+     <%= render "public/navigation" %>
     <div class="container">
-    <% if user_signed_in? %>
-     <p class="lead">Hello, <%= current_user.name %> - <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></p>
-    <br>
-    <% end %>
+    <% if flash[:notice] %>
+  <div class="notification is-primary global-notification">
+    <p class="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="notification is-danger global-notification">
+    <p class="alert"><%= alert %></p>
+  </div>
+<% end %>
     <%= yield %>
     </div>
   </body>

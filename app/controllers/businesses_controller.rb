@@ -1,11 +1,18 @@
 class BusinessesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_business, only: [:show, :edit, :update, :destroy]
-
+  after_action :verify_authorized, except: :show
   # GET /businesses
   # GET /businesses.json
   def index
-    @businesses = Business.all
+    @businesses = current_user.businesses
+    authorize Business
+    if @businesses.count > 0
+      authorize Business
+    else
+      redirect_to root_path
+      skip_authorization
+    end
   end
 
   # GET /businesses/1
@@ -20,6 +27,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1/edit
   def edit
+    authorize Business
   end
 
   # POST /businesses
@@ -29,6 +37,7 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
+        @user_business = UserBusiness.create(user:current_user, business:@business)
         format.html { redirect_to @business, notice: 'Business was successfully created.' }
         format.json { render :show, status: :created, location: @business }
       else
