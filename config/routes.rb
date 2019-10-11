@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   match '/blog', to: 'public#blog', via: 'get'
 
   root 'public#index'
-
+  
+  match '*a', :to => 'application#page_not_found', via: :get
 
 end
