@@ -1,5 +1,5 @@
 <% provide(:title,"Edit | Profile") %>
-<% content_for :page_content do %>
+<% content_for :account_page_content do %>
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
@@ -47,6 +47,6 @@
 
 <% end %>
 
-<%= render template: "devise/wrapper_template" %>
+<%= render template: "layouts/account" %>
 
 

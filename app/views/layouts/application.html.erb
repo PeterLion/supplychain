@@ -13,13 +13,11 @@
 
   <body>
      <%= render "public/navigation" %>
-        <% if flash[:notice] || flash[:alert] %>
+        <% if flash[:notice] %>
           <div class="notification is-primary global-notification">
             <p class="notice"><%= notice %></p>
           </div>
-          
-          
-        <% end %>
+         <% end %>
         <%= yield %>
   </body>
 </html>
