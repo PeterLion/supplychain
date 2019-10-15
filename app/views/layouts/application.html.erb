@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Railsshipping</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +13,13 @@
 
   <body>
      <%= render "public/navigation" %>
-     <div class="container">
-        <% if flash[:notice] %>
+        <% if flash[:notice] || flash[:alert] %>
           <div class="notification is-primary global-notification">
             <p class="notice"><%= notice %></p>
           </div>
+          
+          
         <% end %>
         <%= yield %>
-     </div>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<% provide(:title,"Edit | Orders") %>
+<% content_for :account_page_content do %>
+<h1>Editing Order</h1>
+
+<%= render 'form', order: @order %>
+
+<%= link_to 'Show', @order %> |
+<%= link_to 'Back', orders_path %>
+<% end %>
+
+<%= render template: "layouts/account" %>
+
+
+
+
+
+
+

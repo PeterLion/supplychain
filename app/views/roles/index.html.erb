@@ -1,13 +1,15 @@
+<% provide(:title, "Roles") %>
+<% content_for :account_page_content do %>
 <p id="notice"><%= notice %></p>
 
 <h1>Roles</h1>
 
-<table>
+<table class="table table-stripped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -27,3 +29,13 @@
 <br>
 
 <%= link_to 'New Role', new_role_path %>
+<% end %>
+
+<%= render template: "layouts/account" %>
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+<% provide(:title,"Edit | Shipments") %>
+<% content_for :account_page_content do %>
+<h1>Editing Shipment</h1>
+
+<%= render 'form', shipment: @shipment %>
+
+<%= link_to 'Show', @shipment %> |
+<%= link_to 'Back', shipments_path %>
+<% end %>
+
+<%= render template: "layouts/account" %>
+
+
+

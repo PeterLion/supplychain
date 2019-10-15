@@ -1,0 +1,34 @@
+<% provide(:title, "Shipments") %>
+<% content_for :account_page_content do %>
+ <p id="notice"><%= notice %></p>
+
+<h1>Shipments</h1>
+
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shipments.each do |shipment| %>
+      <tr>
+        <td><%= shipment.title %></td>
+        <td><%= link_to 'Show', shipment %></td>
+        <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
+        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shipment', new_shipment_path %>
+
+
+<% end %>
+
+<%= render template: "layouts/account" %>

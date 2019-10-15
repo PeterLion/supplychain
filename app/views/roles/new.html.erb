@@ -1,5 +1,15 @@
+<% provide(:title,"New | Roles") %>
+<% content_for :account_page_content do %>
+
 <h1>New Role</h1>
 
 <%= render 'form', role: @role %>
 
 <%= link_to 'Back', roles_path %>
+<% end %>
+
+<%= render template: "layouts/account" %>
+
+
+
+

@@ -5,13 +5,6 @@ class BusinessesController < ApplicationController
   # GET /businesses.json
   def index
     @businesses = current_user.businesses
-    authorize Business
-    if @businesses.count > 0
-      authorize Business
-    else
-      redirect_to root_path
-      skip_authorization
-    end
   end
 
   # GET /businesses/1

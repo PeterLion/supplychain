@@ -1,19 +1,37 @@
+<% provide(:title,"View | Businesses") %>
+<% content_for :account_page_content do %>
 <p id="notice"><%= notice %></p>
+<h1>Business</h1>
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Address</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Name:</strong>
-  <%= @business.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @business.description %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @business.address %>
-</p>
+  <tbody>
+   <tr>
+     <td><%= @business.name %></td>
+     <td><%= @business.description %></td>
+     <td><%= @business.address %></td>
+   </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
+<% end %>
+
+<%= render template: "layouts/account" %>
+
+
+
+
+
+
+
+
+
+

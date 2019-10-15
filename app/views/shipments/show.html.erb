@@ -1,0 +1,27 @@
+<% provide(:title,"View | Shipments") %>
+<% content_for :account_page_content do %>
+<p id="notice"><%= notice %></p>
+<h1>Shipment</h1>
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>title</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <tr>
+     <td><%= @shipment.title %></td>
+   </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Back', shipments_path %>
+<% end %>
+
+<%= render template: "layouts/account" %>
+
+
+
+
+

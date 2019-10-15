@@ -1,4 +1,5 @@
-<div class="row m-auto">
+<% content_for :page_content do %>
+  <div class="row m-auto">
     <div class="col-sm-12 col-md-6 col-lg-6">
             <h2>Sign up</h2>
 
@@ -49,4 +50,9 @@
 <%= render "devise/shared/links" %>
     </div>
 </div>
+
+<% end %>
+
+<%= render template: "devise/wrapper_template" %>
+
 
