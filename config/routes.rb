@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Resources routes
   resources :roles
   resources :businesses
-  devise_for :users, controllers: {registrations: "registrations"}
+  devise_for :users
   resources :products
   resources :orders
   resources :shipments

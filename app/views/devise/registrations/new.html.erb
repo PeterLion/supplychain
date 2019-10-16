@@ -7,7 +7,7 @@
   
   <div class="field form-group">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class:"form-control user_name", autocomplete: "name" %>
+    <%= f.text_field :name,autofocus: true, class:"form-control user_name", autocomplete: "name" %>
      <span>
      <% if resource.errors[:name].any? %>
         <%= resource.errors[:name][0] %>

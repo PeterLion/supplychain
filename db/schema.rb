@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(version: 2019_10_14_213958) do
     t.integer "business_id", null: false
   end
 
-  create_table "chipments", force: :cascade do |t|
-    t.string "title"
-    t.integer "order_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_chipments_on_order_id"
-  end
-
   create_table "orders", force: :cascade do |t|
     t.string "title"
     t.integer "business_id", null: false
@@ -40,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_10_14_213958) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["business_id"], name: "index_orders_on_business_id"
+    t.index ["vendor_id"], name: "index_orders_on_vendor_id"
   end
 
   create_table "orders_products", id: false, force: :cascade do |t|
@@ -121,8 +114,8 @@ ActiveRecord::Schema.define(version: 2019_10_14_213958) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "chipments", "orders"
   add_foreign_key "orders", "businesses"
+  add_foreign_key "orders", "businesses", column: "vendor_id"
   add_foreign_key "permissions", "roles"
   add_foreign_key "permissions", "users"
   add_foreign_key "products", "businesses"

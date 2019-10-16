@@ -19,7 +19,6 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1/edit
   def edit
-    authorize Business
   end
 
   # POST /businesses
