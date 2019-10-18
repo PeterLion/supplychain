@@ -5,9 +5,12 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = current_user.businesses[0].orders
+    @orders = current_user.business.orders
   end
-
+  def received
+    @orders = current_user.business.received_orders
+    render 'index', locals: { orders: @orders}
+  end
   # GET /orders/1
   # GET /orders/1.json
   def show
@@ -15,6 +18,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @businesses = Business.includes(:products).where(products:{id: !nil})
+    @business_options = @businesses.map{|b| [b.name, b.id]}
     @order = Order.new
   end
 
@@ -26,10 +31,10 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @order.business = current_user.businesses[0]
+    @order.business = current_user.business
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to vendorProducts_path(@vendorProducts,id:@order.vendor_id), notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -70,6 +75,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:title)
+      params.require(:order).permit(:title,:vendor_id)
     end
 end

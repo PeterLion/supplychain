@@ -2,15 +2,28 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading"><%= link_to "Business Profile", user_account_path, class:"nav-link"%></div>
+      <div class="sidebar-heading"><%= link_to "Business Profile", user_account_path, class:"nav-link",data: { target: '#business_links', toggle: :collapse }%></div>
+      <div id = "business_links" class="panel-collapse collapse">
+                  <ul class = "list-group">
+                     <li class = "list-group-item list-group-item-action"><%= link_to "Add Employee", new_user_invitation_path %></li>
+                     <li class = "list-group-item list-group-item-action"><%= link_to "Customers orders",receivedOrders_path %></li>
+                  </ul>
+               </div>
       <div class="list-group list-group-flush">
         <%= link_to "Products", products_path, class:"list-group-item list-group-item-action bg-light"%>
-        <%= link_to "Orders", orders_path, class:"list-group-item list-group-item-action bg-light"%>
+        <%= link_to "Orders", orders_path, class:"list-group-item list-group-item-action bg-light",data: { target: '#order_links', toggle: :collapse }%>
+        <div id = "order_links" class="panel-collapse collapse">
+                  <ul class = "list-group">
+                     <li class = "list-group-item list-group-item-action"><%= link_to "Purchasing orders", orders_path%></li>
+                     <li class = "list-group-item list-group-item-action"><%= link_to "Customers orders",receivedOrders_path %></li>
+                  </ul>
+               </div>
         <%= link_to "Shipments", shipments_path, class:"list-group-item list-group-item-action bg-light"%>
         <%= link_to "Profile", user_profile_path, class:"list-group-item list-group-item-action bg-light"%>
         <%= link_to "Roles", roles_path, class:"list-group-item list-group-item-action bg-light"%>
         <%= link_to "Businesses", businesses_path, class:"list-group-item list-group-item-action bg-light"%>
         <a href="#" class="list-group-item list-group-item-action bg-light">Reports</a>
+         
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -18,7 +31,7 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <div class="container-fluid">
+      <div class="container">
         <%= yield(:account_page_content) %>
       </div>
     </div>

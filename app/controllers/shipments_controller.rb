@@ -26,7 +26,6 @@ class ShipmentsController < ApplicationController
   # POST /shipments.json
   def create
     @shipment = Shipment.new(shipment_params)
-    @shipment.order = current_user.businesses[0].orders[0]
     respond_to do |format|
       if @shipment.save
         format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
@@ -70,6 +69,6 @@ class ShipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shipment_params
-      params.require(:shipment).permit(:title)
+      params.require(:shipment).permit(:title,:order_id)
     end
 end

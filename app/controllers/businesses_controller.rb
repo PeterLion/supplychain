@@ -4,14 +4,18 @@ class BusinessesController < ApplicationController
   # GET /businesses
   # GET /businesses.json
   def index
-    @businesses = current_user.businesses
+    @businesses = current_user.business
   end
 
   # GET /businesses/1
   # GET /businesses/1.json
   def show
   end
-
+  # GET /vendor/id/products
+  def getVendorProducts
+    @products = Business.find(params[:id]).products
+    render 'orders/products', locals: { products: @products}
+  end
   # GET /businesses/new
   def new
     @business = Business.new
@@ -25,10 +29,9 @@ class BusinessesController < ApplicationController
   # POST /businesses.json
   def create
     @business = Business.new(business_params)
-
+    @business.user_id = current_user.id
     respond_to do |format|
       if @business.save
-        @user_business = UserBusiness.create(user:current_user, business:@business)
         format.html { redirect_to @business, notice: 'Business was successfully created.' }
         format.json { render :show, status: :created, location: @business }
       else

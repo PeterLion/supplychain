@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 #Use Devise for user authentication management
 gem 'devise'
+# User Devise invitable to add and invite users
+gem 'devise_invitable', '~> 2.0.0'
 #Use Figaro for Environment variables
 gem 'figaro'
 #Use Pundit for authorization

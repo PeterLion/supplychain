@@ -14,6 +14,13 @@
     <%= form.label :title %>
     <%= form.text_field :title, class:"form-control" %>
   </div>
+  <div class="filed form-group">
+    <%= form.label :Vendor %>
+    <%= form.select(:vendor_id,options_for_select(@business_options),{include_blank:'Select vendor',disabled:true},{class:"form-control"}) %>
+  </div>
+  <div class="form-group" id="vendor_products">
+
+  </div>
   <div class="actions form-group">
     <%= form.submit %>
   </div>
